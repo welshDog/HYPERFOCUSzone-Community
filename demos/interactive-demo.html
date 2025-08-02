@@ -47,6 +47,7 @@
             background: rgba(255, 255, 255, 0.1);
             border-radius: 15px;
             padding: 30px;
+            -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
             transition: transform 0.3s ease;
@@ -146,6 +147,24 @@
             background: #4752C4;
             transform: scale(1.05);
         }
+
+        .stat-icon {
+            font-size: 2em;
+        }
+
+        .challenge-progress {
+            width: 65%;
+        }
+
+        .discord-list {
+            text-align: left;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        .discord-member-count {
+            margin-top: 15px;
+        }
     </style>
 </head>
 
@@ -181,17 +200,17 @@
                 <p>Personalized strategies for your unique brain:</p>
                 <div class="stats-grid">
                     <div class="stat-box">
-                        <div style="font-size: 2em;">🎯</div>
+                        <div class="stat-icon">🎯</div>
                         <div>Focus Score</div>
                         <div id="focusScore">85%</div>
                     </div>
                     <div class="stat-box">
-                        <div style="font-size: 2em;">⚡</div>
+                        <div class="stat-icon">⚡</div>
                         <div>Energy Level</div>
                         <div id="energyLevel">High</div>
                     </div>
                     <div class="stat-box">
-                        <div style="font-size: 2em;">🏆</div>
+                        <div class="stat-icon">🏆</div>
                         <div>Daily Wins</div>
                         <div id="dailyWins">7</div>
                     </div>
@@ -216,7 +235,7 @@
                 <p>Participants: <span id="participants">1,247</span> focus warriors</p>
                 <p>Your rank: <span id="rank">#42</span></p>
                 <div class="productivity-meter">
-                    <div class="productivity-fill" style="width: 65%;"></div>
+                    <div class="productivity-fill challenge-progress"></div>
                 </div>
                 <button class="btn" onclick="joinChallenge()">🏆 Join Challenge</button>
             </div>
@@ -236,7 +255,7 @@
         <div class="discord-cta">
             <h2>🎊 Join Our Amazing Community! 🎊</h2>
             <p>This is just a taste of what we're building! The real magic happens in our Discord community where:</p>
-            <ul style="text-align: left; max-width: 600px; margin: 20px auto;">
+            <ul class="discord-list">
                 <li>💬 Daily focus sessions with fellow warriors</li>
                 <li>🧠 ADHD support and strategies</li>
                 <li>🚀 Early access to new tools</li>
@@ -245,7 +264,7 @@
                 <li>🏆 Exclusive challenges and rewards</li>
             </ul>
             <a href="#" class="discord-btn" onclick="joinDiscord()">🎮 JOIN DISCORD NOW!</a>
-            <p style="margin-top: 15px;">Over 5,000 focus warriors already inside!</p>
+            <p class="discord-member-count">Over 5,000 focus warriors already inside!</p>
         </div>
     </div>
 
