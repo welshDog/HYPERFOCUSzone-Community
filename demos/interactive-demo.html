@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀 HYPERFOCUS Zone - Interactive Demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .demo-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .demo-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .demo-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: #FFD700;
+        }
+
+        .focus-timer {
+            text-align: center;
+        }
+
+        .timer-display {
+            font-size: 4em;
+            font-weight: bold;
+            margin: 20px 0;
+            color: #00FF88;
+        }
+
+        .btn {
+            background: linear-gradient(45deg, #00FF88, #00CCFF);
+            border: none;
+            color: white;
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 25px;
+            cursor: pointer;
+            margin: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 255, 136, 0.4);
+        }
+
+        .productivity-meter {
+            width: 100%;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 15px 0;
+        }
+
+        .productivity-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #FF6B6B, #FFD93D, #6BCF7F);
+            width: 0%;
+            transition: width 1s ease;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .stat-box {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .discord-cta {
+            background: linear-gradient(45deg, #7289DA, #5865F2);
+            text-align: center;
+            padding: 40px;
+            border-radius: 20px;
+            margin-top: 40px;
+        }
+
+        .discord-btn {
+            background: #5865F2;
+            color: white;
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .discord-btn:hover {
+            background: #4752C4;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 HYPERFOCUS ZONE 🚀</h1>
+            <p>Experience the Future of Productivity</p>
+        </div>
+
+        <div class="demo-grid">
+            <div class="demo-card focus-timer">
+                <h3>⚡ Focus Session Timer</h3>
+                <div class="timer-display" id="timer">25:00</div>
+                <button class="btn" onclick="startTimer()">Start Focus Session</button>
+                <button class="btn" onclick="pauseTimer()">Pause</button>
+                <button class="btn" onclick="resetTimer()">Reset</button>
+                <p>Optimized for ADHD brains with built-in dopamine rewards!</p>
+            </div>
+
+            <div class="demo-card">
+                <h3>💎 Productivity Meter</h3>
+                <p>Your current focus level:</p>
+                <div class="productivity-meter">
+                    <div class="productivity-fill" id="productivityFill"></div>
+                </div>
+                <p id="productivityText">Ready to boost your focus!</p>
+                <button class="btn" onclick="boostProductivity()">🚀 Activate Hyperfocus</button>
+            </div>
+
+            <div class="demo-card">
+                <h3>🧠 ADHD Brain Optimizer</h3>
+                <p>Personalized strategies for your unique brain:</p>
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <div style="font-size: 2em;">🎯</div>
+                        <div>Focus Score</div>
+                        <div id="focusScore">85%</div>
+                    </div>
+                    <div class="stat-box">
+                        <div style="font-size: 2em;">⚡</div>
+                        <div>Energy Level</div>
+                        <div id="energyLevel">High</div>
+                    </div>
+                    <div class="stat-box">
+                        <div style="font-size: 2em;">🏆</div>
+                        <div>Daily Wins</div>
+                        <div id="dailyWins">7</div>
+                    </div>
+                </div>
+                <button class="btn" onclick="optimizeBrain()">🧠 Optimize My Brain</button>
+            </div>
+
+            <div class="demo-card">
+                <h3>🤖 AI Productivity Assistant</h3>
+                <p>Smart suggestions based on your patterns:</p>
+                <div id="aiSuggestions">
+                    <p>💡 "It's your peak focus time! Start that important project now."</p>
+                    <p>🎵 "Try lo-fi music - it boosts your productivity by 23%"</p>
+                    <p>☕ "Coffee break in 15 minutes for optimal performance"</p>
+                </div>
+                <button class="btn" onclick="getAISuggestion()">🤖 Get AI Suggestion</button>
+            </div>
+
+            <div class="demo-card">
+                <h3>🌟 Community Challenges</h3>
+                <p>Current challenge: <strong>30-Day Focus Sprint</strong></p>
+                <p>Participants: <span id="participants">1,247</span> focus warriors</p>
+                <p>Your rank: <span id="rank">#42</span></p>
+                <div class="productivity-meter">
+                    <div class="productivity-fill" style="width: 65%;"></div>
+                </div>
+                <button class="btn" onclick="joinChallenge()">🏆 Join Challenge</button>
+            </div>
+
+            <div class="demo-card">
+                <h3>💚 Focus Friend Finder</h3>
+                <p>Connect with productivity partners worldwide:</p>
+                <div id="friendSuggestions">
+                    <p>🤝 Sarah M. - ADHD productivity expert</p>
+                    <p>🤝 Alex K. - Pomodoro technique master</p>
+                    <p>🤝 Jordan T. - Study buddy available now</p>
+                </div>
+                <button class="btn" onclick="findFriends()">🤝 Find Focus Friends</button>
+            </div>
+        </div>
+
+        <div class="discord-cta">
+            <h2>🎊 Join Our Amazing Community! 🎊</h2>
+            <p>This is just a taste of what we're building! The real magic happens in our Discord community where:</p>
+            <ul style="text-align: left; max-width: 600px; margin: 20px auto;">
+                <li>💬 Daily focus sessions with fellow warriors</li>
+                <li>🧠 ADHD support and strategies</li>
+                <li>🚀 Early access to new tools</li>
+                <li>💚 Real friendships and connections</li>
+                <li>🤖 Become a Human Agent and help others</li>
+                <li>🏆 Exclusive challenges and rewards</li>
+            </ul>
+            <a href="#" class="discord-btn" onclick="joinDiscord()">🎮 JOIN DISCORD NOW!</a>
+            <p style="margin-top: 15px;">Over 5,000 focus warriors already inside!</p>
+        </div>
+    </div>
+
+    <script>
+        let timer = 25 * 60; // 25 minutes in seconds
+        let isRunning = false;
+        let interval;
+
+        function updateTimerDisplay() {
+            const minutes = Math.floor(timer / 60);
+            const seconds = timer % 60;
+            document.getElementById('timer').textContent =
+                `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+
+        function startTimer() {
+            if (!isRunning) {
+                isRunning = true;
+                interval = setInterval(() => {
+                    timer--;
+                    updateTimerDisplay();
+                    if (timer <= 0) {
+                        clearInterval(interval);
+                        isRunning = false;
+                        alert('🎊 Focus session complete! You\'re amazing! 🎊');
+                        timer = 25 * 60;
+                        updateTimerDisplay();
+                    }
+                }, 1000);
+            }
+        }
+
+        function pauseTimer() {
+            if (isRunning) {
+                clearInterval(interval);
+                isRunning = false;
+            }
+        }
+
+        function resetTimer() {
+            clearInterval(interval);
+            isRunning = false;
+            timer = 25 * 60;
+            updateTimerDisplay();
+        }
+
+        function boostProductivity() {
+            const fill = document.getElementById('productivityFill');
+            const text = document.getElementById('productivityText');
+            const currentWidth = parseInt(fill.style.width) || 0;
+            const newWidth = Math.min(currentWidth + 25, 100);
+            fill.style.width = newWidth + '%';
+
+            const messages = [
+                "🚀 Hyperfocus activated!",
+                "💎 You're in the zone!",
+                "⚡ Productivity boosted!",
+                "🏆 Maximum focus achieved!"
+            ];
+            text.textContent = messages[Math.floor(newWidth / 25) - 1] || messages[3];
+        }
+
+        function optimizeBrain() {
+            const focusScore = document.getElementById('focusScore');
+            const energyLevel = document.getElementById('energyLevel');
+            const dailyWins = document.getElementById('dailyWins');
+
+            focusScore.textContent = (Math.floor(Math.random() * 15) + 85) + '%';
+            energyLevel.textContent = ['High', 'Very High', 'Maximum'][Math.floor(Math.random() * 3)];
+            dailyWins.textContent = Math.floor(Math.random() * 10) + 5;
+
+            alert('🧠 Brain optimization complete! Your ADHD superpowers are activated! 🚀');
+        }
+
+        function getAISuggestion() {
+            const suggestions = [
+                "💡 Perfect time for deep work - your focus patterns show peak performance now!",
+                "🎵 Try binaural beats at 40Hz - it increases your focus by 31%",
+                "🚶 Take a 5-minute walk - movement boosts your ADHD brain power",
+                "💧 Hydration check! Your brain needs water to maintain hyperfocus",
+                "🎯 Break that big task into 3 smaller wins - dopamine will thank you!",
+                "⏰ Your attention span is optimized for 23-minute focused sprints right now"
+            ];
+
+            const randomSuggestion = suggestions[Math.floor(Math.random() * suggestions.length)];
+            document.getElementById('aiSuggestions').innerHTML = `<p>${randomSuggestion}</p>`;
+        }
+
+        function joinChallenge() {
+            const participants = document.getElementById('participants');
+            const rank = document.getElementById('rank');
+
+            participants.textContent = (parseInt(participants.textContent.replace(',', '')) + 1).toLocaleString();
+            rank.textContent = '#' + (Math.floor(Math.random() * 50) + 1);
+
+            alert('🏆 Welcome to the challenge! Your focus journey starts now! 🚀');
+        }
+
+        function findFriends() {
+            const friends = [
+                "🤝 Maya - Coding focus buddy online now",
+                "🤝 Chris - Study partner, loves pomodoro",
+                "🤝 Sam - ADHD coach available for chat",
+                "🤝 Riley - Focus accountability partner"
+            ];
+
+            const randomFriends = friends.sort(() => 0.5 - Math.random()).slice(0, 3);
+            document.getElementById('friendSuggestions').innerHTML =
+                randomFriends.map(friend => `<p>${friend}</p>`).join('');
+        }
+
+        function joinDiscord() {
+            alert('🎊 Discord link coming soon! We\'re setting up the most amazing focus community ever! 🚀');
+        }
+
+        // Auto-update some stats
+        setInterval(() => {
+            const participants = document.getElementById('participants');
+            const current = parseInt(participants.textContent.replace(',', ''));
+            participants.textContent = (current + Math.floor(Math.random() * 3)).toLocaleString();
+        }, 30000);
+    </script>
+</body>
+
+</html>
