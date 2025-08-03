@@ -120,11 +120,11 @@ We're always looking for passionate **Human Agents** who want to:
 
 ### 📞 **CONNECT WITH US:**
 
-- 💬 **Discord**: [hyperfocuszone.com/discord]
+- 💬 **Discord**: [hyperfocuszone.com/discord](https://discord.gg/2fpxEsUyfa)
 - 🐙 **GitHub**: [@welshDog](https://github.com/welshDog)
 - 🌐 **Website**: [hyperfocuszone.com]
-- 📧 **Email**: hello@hyperfocuszone.com
-- 🐦 **Twitter**: [@HyperFocusZone]
+- 📧 **Email**: SEND-ME.NFT@ud.me
+
 
 ---
 
