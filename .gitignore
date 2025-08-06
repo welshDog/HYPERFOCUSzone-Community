@@ -1,0 +1,67 @@
+# ⚡💎 HYPERFOCUS ZONE SECURITY-FIRST .GITIGNORE 💎⚡
+
+# Environment files with secrets
+.env
+.env.local
+.env.production
+.env.development
+empire.env
+secrets.txt
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv
+pip-log.txt
+pip-delete-this-directory.txt
+
+# API Keys and Secrets
+*secret*
+*token*
+*key*.txt
+*password*.txt
+config/secrets/
+
+# Logs
+*.log
+logs/
+immortal_bot_status*.json
+immortal_discord_bot*.log
+
+# OS generated
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE
+.vscode/settings.json
+.idea/
+*.swp
+*.swo
+
+# Backup files
+*.backup
+*.bak
+*~
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Don't commit node_modules if any
+node_modules/
+
+# NEVER COMMIT THESE PATTERNS:
+# - Discord tokens starting with MTM or other patterns
+# - OpenAI keys starting with sk-
+# - Any string longer than 32 chars that looks like a secret
