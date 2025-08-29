@@ -5,8 +5,8 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
-      day: "sunday"
-      time: "03:00"
+      day: "monday"
+      time: "06:00"
     open-pull-requests-limit: 10
     reviewers:
       - "welshDog"
@@ -16,14 +16,17 @@ updates:
       prefix: "deps"
       prefix-development: "deps-dev"
       include: "scope"
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-patch"]
 
   # Enable version updates for GitHub Actions
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
       interval: "weekly"
-      day: "sunday"
-      time: "03:00"
+      day: "monday"
+      time: "06:00"
     open-pull-requests-limit: 5
     reviewers:
       - "welshDog"
@@ -37,8 +40,8 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
-      day: "sunday"
-      time: "03:00"
+      day: "monday"
+      time: "06:00"
     open-pull-requests-limit: 8
     reviewers:
       - "welshDog"
@@ -47,3 +50,6 @@ updates:
     commit-message:
       prefix: "deps"
       include: "scope"
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-patch"]
