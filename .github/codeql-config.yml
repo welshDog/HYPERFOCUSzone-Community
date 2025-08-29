@@ -1,0 +1,18 @@
+name: "CodeQL Configuration"
+
+disable-default-queries: false
+
+queries:
+  - uses: security-and-quality
+  - uses: security-experimental
+
+paths-ignore:
+  - node_modules
+  - __pycache__
+  - .git
+  - "**/*.test.js"
+  - "**/*.spec.js"
+  - "**/*.test.py"
+  - "**/*.spec.py"
+  - "*.log"
+  - "logs/"
